@@ -1,0 +1,81 @@
+img {
+	max-width: 100%;
+}
+
+html, body {
+	/* Para fazer o rodapé ficar sempre na parte inferior da página ;) */
+	min-height: 100vh;
+}
+
+.limitador {
+	max-width: 1366px;
+	margin: 0px auto;
+}
+
+.manter-rodape{
+	/* Para fazer o rodapé ficar sempre na parte inferior da página ;) */
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+
+.conteudo {
+	/* Para fazer o rodapé ficar sempre na parte inferior da página ;) */
+	flex: 1 1 auto;
+}
+
+.rodape {
+	text-align: center;
+	background-color: black;
+	padding: 2rem;
+}
+
+.link-rodape, .link-rodape:hover {
+	color: white;
+	text-decoration: none;
+}
+
+.slogan{
+	background-color: white;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    margin: 0 auto;
+    padding: 10px 0;
+	align-content: center;
+    text-align: center;
+}
+
+.bg-cinza{
+	background-color: #DCE3EC;
+}
+
+.bg-escuro{
+	background-color: #245960;
+	color: white;
+}
+
+.canto-redondo{
+	border-radius: 30px;
+}
+
+.clientes{
+	padding: 30px;
+    max-width: 1020px;
+}
+
+.linha-rosa{
+	background-color: #F3B6C1;
+}
+
+.centralizar{
+    text-align: center;
+    /* align-items: center; */
+    align-content: center;
+    /* justify-content: center; */
+}
+
+.fundo-opaco{
+    background-color: rgba(255, 255, 255, 0.8);
+	color: black;
+}
