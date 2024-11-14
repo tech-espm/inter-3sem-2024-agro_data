@@ -1,32 +1,36 @@
-﻿<div class="container-fluid limitador">
+﻿<div class="bg-cinza">
 
-	<h1>
-		Projeto
-	</h1>
+	<div class="comeco-branco">
+        <h1>
+            Dados Coletados
+        </h1>
+    </div>
 	
-	<div class="row">
-		<div class="col-sm-4">
-
-			<div class="card shadow my-4">
-				<div class="card-body">
-					<form id="form">
-						<div class="form-group">
-							<label for="data">Data</label>
-							<input id="data" name="data" class="form-control" type="date" value="<%= ano %>-<%= mes %>-<%= dia %>" />
-						</div>
-		
-						<button type="submit" class="btn btn-primary">Listar</button>
-					</form>
+	<div class="container-fluid limitador">
+		<div class="row">
+			<div class="col-sm-4">
+	
+				<div class="card shadow my-4 canto-redondo">
+					<div class="card-body">
+						<form id="form">
+							<div class="form-group">
+								<label for="data">Data</label>
+								<input id="data" name="data" class="form-control" type="date" value="<%= ano %>-<%= mes %>-<%= dia %>" />
+							</div>
+			
+							<button type="submit" class="btn botao-verde">Listar</button>
+						</form>
+					</div>
 				</div>
+	
 			</div>
-
+		</div>
+	
+		<div class="card shadow my-4 canto-redondo">
+			<div class="card-body" id="div-grafico"></div>
 		</div>
 	</div>
-
-	<div class="card shadow my-4">
-		<div class="card-body" id="div-grafico"></div>
-	</div>
-
+	
 </div>
 
 <script src="/public/js/jquery-validate/jquery.validate.min.js"></script>

@@ -1,7 +1,7 @@
 ﻿import app = require("teem");
 
 class IndexRoute {
-	public async index(req: app.Request, res: app.Response) {
+	public async grafico(req: app.Request, res: app.Response) {
 		let hoje = new Date();
 
 		let mes = hoje.getMonth() + 1;
@@ -13,7 +13,7 @@ class IndexRoute {
 			dia: (dia < 10 ? "0" + dia : dia)
 		};
 
-		res.render("index/index", opcoes);
+		res.render("index/grafico", opcoes);
 	}
 
 	public async sobre(req: app.Request, res: app.Response) {
@@ -22,6 +22,14 @@ class IndexRoute {
 		};
 
 		res.render("index/sobre", opcoes);
+	}
+
+	public async index(req: app.Request, res: app.Response) {
+		let opcoes = {
+			titulo: "Index"
+		};
+
+		res.render("index/index", opcoes);
 	}
 
 	public async obterDados(req: app.Request, res: app.Response) {

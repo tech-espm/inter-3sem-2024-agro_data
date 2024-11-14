@@ -1,5 +1,5 @@
 <div class="bg-cinza">
-    <div class="slogan">
+    <div class="comeco-branco">
         <h1>
             AgroData
         </h1>
@@ -73,7 +73,30 @@
             </div>
         </div>
 
-        <div></div>
+        <div class="container-fluid py-5">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-3 px-3">
+                    <h2 class="faleconosco">Fale <br>Conosco</h2>
+                    <p>Ficou com alguma dúvida? Entre em contato e mande sua mensagem.</p>
+                </div>
+                <div class="col-md-4 px-4 py-4 fundo-rosa canto-redondo centralizar">
+                    <div class="form-group">
+                        <input class="form-control" type="text" id="inputnome" name="nome" placeholder="Seu nome*" />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" id="inputemail" name="email" placeholder="Seu Email*" />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="number" id="inputtelefone" name="telefone" placeholder="Seu Telefone*" />
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="inputmensagem" name="mensagem" placeholder="Mensagem" rows="3"></textarea>
+                    </div>
+                    <button class="btn botao-verde" type="button" onclick="enviarEmail()">Enviar</button>
+                </div>
+            </div>
+        </div>
 
     </div>
 
