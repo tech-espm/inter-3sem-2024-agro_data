@@ -5,12 +5,12 @@
 		"lib": ["ES2017", "DOM"],
 		"outDir": "src",
 		"sourceMap": true,
+		"strict": true,
 		"experimentalDecorators": true
 	},
 	"exclude": [
 		"node_modules",
 		"public",
-		"serial",
 		"src",
 		"sql",
 		"views"
