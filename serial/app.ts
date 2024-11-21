@@ -1,9 +1,9 @@
 import axios from "axios";
 import Porta = require("./porta");
 
-const nome = "COM13";
+const nome = "COM5";
 const velocidade = 115200;
-const urlPost = "http://localhost:3000/api/leitura";
+const urlPost = "http://localhost:3000/inserirLeitura";
 
 let abrindo = false;
 let porta: Porta | null = null;
