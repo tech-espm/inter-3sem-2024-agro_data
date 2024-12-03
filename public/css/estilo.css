@@ -10,6 +10,7 @@ html, body {
 .limitador {
 	max-width: 1366px;
 	margin: 0px auto;
+	padding: 0px 45px;
 }
 
 .manter-rodape{

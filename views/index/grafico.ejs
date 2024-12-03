@@ -53,11 +53,13 @@
 	});
 
 	async function atualizarDados() {
+		let data = $("#data").val();
+
 		waitSwal();
 
 		try {
 
-			let response = await fetch("/obterDados");
+			let response = await fetch("/obterDadosPorDia?data=" + encodeURIComponent(data));
 
 			if (response.ok) {
 
@@ -66,7 +68,7 @@
 				let div = document.getElementById("div-grafico");
 				div.innerHTML = '<canvas id="grafico-barras" style="height: 50vh;"></canvas>';
 
-				let labels = [], data = [];
+				let labels = [], umidades = [], temperaturas = [], luminosidades = [];
 
 				let dados = await response.json();
 				if (!dados || !dados.length) {
@@ -75,20 +77,34 @@
 				}
 
 				for (let i = 0; i < dados.length; i++) {
-					labels.push(dados[i].dia);
-					data.push(dados[i].valor);
+					labels.push(dados[i].hora);
+					umidades.push(dados[i].umidade_dados);
+					temperaturas.push(dados[i].temperatura_dados);
+					luminosidades.push(dados[i].luminosidade_dados);
 				}
 
 				let grafico = new Chart(document.getElementById("grafico-barras"), {
-					type: "bar",
+					type: "line", // "bar"
 					data: {
 						labels: labels,
 						datasets: [{
-							label: "Valor",
-							backgroundColor: "#4e73df",
-							hoverBackgroundColor: "#2e59d9",
-							borderColor: "#4e73df",
-							data: data,
+							label: "Umidade",
+							backgroundColor: "#0066ff",
+							hoverBackgroundColor: "#0055ee",
+							borderColor: "#0055ee",
+							data: umidades,
+						}, {
+							label: "Temperatura",
+							backgroundColor: "#990000",
+							hoverBackgroundColor: "#880000",
+							borderColor: "#880000",
+							data: temperaturas,
+						}, {
+							label: "Luminosidade",
+							backgroundColor: "#ff9900",
+							hoverBackgroundColor: "#ee8800",
+							borderColor: "#ee8800",
+							data: luminosidades,
 						}],
 					},
 					options: {
@@ -160,3 +176,10 @@
 	atualizarDados();
 
 </script>
+
+<%- contentFor("espaco-head") %>
+<style>
+	.conteudo {
+		background-color: #DCE3EC;
+	}
+</style>
