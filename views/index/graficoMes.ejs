@@ -2,7 +2,7 @@
 
 	<div class="comeco-branco">
         <h1>
-            Dados Diários
+            Dados Mensais
         </h1>
     </div>
 	
@@ -14,15 +14,32 @@
 					<div class="card-body">
 						<form id="form">
 							<div class="form-group">
-								<label for="data">Data</label>
-								<input id="data" name="data" class="form-control" type="date" value="<%= ano %>-<%= mes %>-<%= dia %>" />
+								<label for="mes">Mês</label>
+								<select id="mes" name="mes" class="form-control">
+									<option value="1" <%- (mes === 1 ? 'selected' : '') %>>Janeiro</option>
+									<option value="2" <%- (mes === 2 ? 'selected' : '') %>>Fevereiro</option>
+									<option value="3" <%- (mes === 3 ? 'selected' : '') %>>Março</option>
+									<option value="4" <%- (mes === 4 ? 'selected' : '') %>>Abril</option>
+									<option value="5" <%- (mes === 5 ? 'selected' : '') %>>Maio</option>
+									<option value="6" <%- (mes === 6 ? 'selected' : '') %>>Junho</option>
+									<option value="7" <%- (mes === 7 ? 'selected' : '') %>>Julho</option>
+									<option value="8" <%- (mes === 8 ? 'selected' : '') %>>Agosto</option>
+									<option value="9" <%- (mes === 9 ? 'selected' : '') %>>Setembro</option>
+									<option value="10" <%- (mes === 10 ? 'selected' : '') %>>Outubro</option>
+									<option value="11" <%- (mes === 11 ? 'selected' : '') %>>Novembro</option>
+									<option value="12" <%- (mes === 12 ? 'selected' : '') %>>Dezembro</option>
+								</select>
 							</div>
-			
+							<div class="form-group">
+								<label for="ano">Ano</label>
+								<input id="ano" name="ano" class="form-control" type="number" value="<%= ano %>" />
+							</div>
+
 							<button type="submit" class="btn botao-verde">Listar</button>
 						</form>
 					</div>
 				</div>
-	
+
 			</div>
 		</div>
 	
@@ -43,7 +60,10 @@
 
 	$("#form").validate({
 		rules: {
-			data: {
+			mes: {
+				required: true
+			},
+			ano: {
 				required: true
 			}
 		},
@@ -53,13 +73,14 @@
 	});
 
 	async function atualizarDados() {
-		let data = $("#data").val();
+		let ano = $("#ano").val();
+		let mes = $("#mes").val();
 
 		waitSwal();
 
 		try {
 
-			let response = await fetch("/obterDadosPorDia?data=" + encodeURIComponent(data));
+			let response = await fetch("/obterDadosPorMes?ano=" + encodeURIComponent(ano) + "&mes=" + encodeURIComponent(mes));
 
 			if (response.ok) {
 
@@ -77,7 +98,7 @@
 				}
 
 				for (let i = 0; i < dados.length; i++) {
-					labels.push(dados[i].hora);
+					labels.push(dados[i].dia);
 					umidades.push(dados[i].umidade_dados);
 					temperaturas.push(dados[i].temperatura_dados);
 					luminosidades.push(dados[i].luminosidade_dados);

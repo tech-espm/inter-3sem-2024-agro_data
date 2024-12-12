@@ -46,6 +46,21 @@ class IndexRoute {
 		res.render("index/grafico", opcoes);
 	}
 
+	public async graficoMes(req: app.Request, res: app.Response) {
+		let hoje = new Date();
+
+		let mes = hoje.getMonth() + 1;
+		let dia = hoje.getDate();
+
+		let opcoes = {
+			ano: hoje.getFullYear(),
+			mes: (mes < 10 ? "0" + mes : mes),
+			dia: (dia < 10 ? "0" + dia : dia)
+		};
+
+		res.render("index/graficoMes", opcoes);
+	}
+
 	public async sobre(req: app.Request, res: app.Response) {
 		let opcoes = {
 			titulo: "Sobre"
@@ -78,6 +93,35 @@ class IndexRoute {
 				where data_dados between ? and ?
 				group by hora
 				order by hora asc
+			`, [dataInicial, dataFinal]);
+		});
+
+		res.json(dados);
+	}
+
+	public async obterDadosPorMes(req: app.Request, res: app.Response) {
+		let mes = parseInt(req.query.mes as string);
+		let ano = parseInt(req.query.ano as string);
+
+		let dataInicial = `${ano}-${mes}-01 00:00:00`;
+		if (mes >= 12) {
+			ano++;
+			mes = 1;
+		} else {
+			mes++;
+		}
+		let dataFinal = `${ano}-${mes}-01 00:00:00`;
+
+		let dados: any[];
+
+		await app.sql.connect(async (sql: app.Sql) => {
+			dados = await sql.query(`
+				select avg(umidade_dados) umidade_dados, avg(temperatura_dados) temperatura_dados,
+				avg(luminosidade_dados) luminosidade_dados, extract(day from data_dados) dia
+				from agro_dados
+				where data_dados between ? and ?
+				group by dia
+				order by dia asc
 			`, [dataInicial, dataFinal]);
 		});
 
