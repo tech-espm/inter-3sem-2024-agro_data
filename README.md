@@ -1,7 +1,7 @@
 # Projeto Interdisciplinar III - Sistemas de Informação ESPM
 
-<p style="text-align: center;">
-    <a href="https://www.espm.br/cursos-de-graduacao/sistemas-de-informacao/"><img src="https://avatars.githubusercontent.com/u/49880458?s=200&v=4" alt="Sistemas de Informação ESPM" style="height: 200px; width: 200px;"/></a>
+<p align="center">
+    <a href="https://www.espm.br/cursos-de-graduacao/sistemas-de-informacao/"><img src="https://raw.githubusercontent.com/tech-espm/misc-template/main/logo.png" alt="Sistemas de Informação ESPM" style="width: 375px;"/></a>
 </p>
 
 # AgroData
@@ -14,8 +14,6 @@
 ## Descrição do Projeto
 
 Com base nos Objetivos de Desenvolvimento Sustentável (ODS) estabelecidos pela ONU, o grupo decidiu desenvolver uma estação meteorológica voltada para o monitoramento climático, com o intuito de informar os usuários sobre mudanças ambientais em sua região. O projeto visa atender aos ODS 13 (Ação contra a Mudança Global do Clima) e ODS 9 (Indústria, Inovação e Infraestrutura), promovendo a conscientização e o avanço tecnológico em prol da sustentabilidade.
-
-
 
 ### Objetivo Final
 
@@ -42,4 +40,8 @@ mysqldatabase=[NOME DO BANCO]
 
 # Licença
 
-Este projeto é licenciado sob a [MIT License].
+Este projeto é licenciado sob a [MIT License](https://github.com/tech-espm/inter-3sem-2024-agro_data/blob/main/LICENSE).
+
+<p align="right">
+    <a href="https://www.espm.br/cursos-de-graduacao/sistemas-de-informacao/"><img src="https://raw.githubusercontent.com/tech-espm/misc-template/main/logo-si-512.png" alt="Sistemas de Informação ESPM" style="width: 375px;"/></a>
+</p>
